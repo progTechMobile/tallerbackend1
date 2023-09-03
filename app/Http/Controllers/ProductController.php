@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Models\Product;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -27,8 +27,9 @@ class ProductController extends Controller
         //
         $product = new Product();
         $product->id= $request->id;
-        $product->Nombre= $request->Nombre;
-        $product->Precio= $request->Precio;
+        $product->nombre= $request->nombre;
+        $product->precio= $request->precio;
+        $product->category_id = $request->category_id;
         $product->save();
         return $product;
     }
@@ -52,8 +53,9 @@ class ProductController extends Controller
     {
         //
         $product = Product::find($id);
-        $product->Nombre= $request->Nombre;
-        $product->Precio= $request->Precio;
+        $product->nombre= $request->nombre;
+        $product->precio= $request->precio;
+        $product->category_id = $request->category_id;
         $product->save();
         return $product;
     }
